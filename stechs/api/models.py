@@ -36,6 +36,15 @@ class DocsisUpdate(models.Model):
     vsi_model = models.CharField(max_length=255)
     vsi_vendor = models.CharField(max_length=255)
 
+    def get_dict(self):
+        return {
+            "modem_macadd": self.modem_macaddr,
+            "ipaddr": self.ipaddr,
+            "vsi_vendor": self.vsi_vendor,
+            "vsi_model": self.vsi_model,
+            "vsi_swver": self.vsi_swver
+        }
+
     class Meta:
         managed = False
         db_table = "docsis_update"

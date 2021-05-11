@@ -1,0 +1,2 @@
+class StechsApiError(Exception):
+    pass
