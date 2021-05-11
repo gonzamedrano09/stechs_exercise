@@ -16,7 +16,7 @@ class ServiceModelsJson:
         # Creo lista de diccionarios del vendor pasado por parámetro
         models = []
         for model_json in file_json.get("models"):
-            if vendor in model_json.get("vendor"):
+            if vendor.lower() in model_json.get("vendor").lower():
                 models.append(model_json)
 
         # Retorno listado de modelos
@@ -32,8 +32,8 @@ class ServiceModelsJson:
         # Verifico que aún no exista el modelo del fabricante en el archivo JSON
         model_encontrado = False
         for model_json in file_json.get("models"):
-            if model_json.get("vendor") in model_dict.get("vendor") and \
-                    model_json.get("name") == model_dict.get("name"):
+            if model_json.get("vendor").lower() in model_dict.get("vendor").lower() and \
+                    model_json.get("name").lower() == model_dict.get("name").lower():
                 model_encontrado = True
                 break
         if model_encontrado:

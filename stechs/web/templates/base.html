@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+        <link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}"/>
+    {% block css %}
+    {% endblock %}
+        <script type="text/javascript" src="{% static "lib/jquery/js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "lib/bootstrap/js/bootstrap.min.js" %}"></script>
+    {% block js %}
+    {% endblock %}
+<body>
+<header>
+    <div class="container-fluid">
+        {% block header %}
+        {% endblock %}
+    </div>
+</header>
+<main>
+    <div class="container-fluid">
+        {% block main %}
+        {% endblock %}
+    </div>
+</main>
+<footer>
+    <div class="container-fluid">
+        {% block footer %}
+        {% endblock %}
+    </div>
+</footer>
+</body>
+</html>

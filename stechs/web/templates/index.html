@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Stechs
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{% static "js/index.js" %}"></script>
+{% endblock %}
+{% block header %}
+    <div class="col-lg-10 offset-lg-1 col-sm-12">
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">
+            <img src="{% static "resources/img/stechs-logo_white.svg" %}" height="100" alt="">
+        </a>
+        </nav>
+    </div>
+{% endblock %}
+{% block main %}
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-sm-12">
+            <div class="row" style="padding-top: 15px" id="div-buscar">
+                <div>
+                    <p>
+                        Ingrese el nombre del fabricante a para buscar cable modems que no coincidan con los modelos
+                        dentro del archivo models.json
+                    </p>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Nombre de fabricante" aria-label="Nombre de fabricante"
+                         aria-describedby="basic-addon2" id="txt-nombre-fabricante">
+                  <div class="input-group-append">
+                    <button class="btn btn-dark" type="button" id="btn-buscar">
+                        Buscar
+                    </button>
+                  </div>
+                </div>
+            </div>
+            <div class="row hidden" id="div-tabla">
+                <table class="table" id="table-cable-modems">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fabricante</th>
+                            <th scope="col">Dirección MAC</th>
+                            <th scope="col">Dirección IP</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Versión del software</th>
+                            <th scope="col">Agregar a models.json</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="clone hidden">
+                            <td class="td-vendor"></td>
+                            <td class="td-mac"></td>
+                            <td class="td-ip"></td>
+                            <td class="td-modelo"></td>
+                            <td class="td-version"></td>
+                            <td class="td-accion">
+                                <button type="button" class="btn btn-outline-dark btn-accion">
+                                    Agregar
+                                </button>
+                            </td>
+                        </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="row hidden" id="div-mensaje-error">
+                <div class="alert alert-dark" role="alert" id="mensaje-error" style="margin: 10px">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
